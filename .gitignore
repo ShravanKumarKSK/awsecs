@@ -1,0 +1,12 @@
+node_modules
+# package-lock.json
+dist
+drafts
+logs
+.env
+.nyc_output
+coverage
+.idea
+idea.*
+/public/build/
+.vscode/*
