@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="padding-left: 2rem;padding-right: 2rem;">
+    <table style="width: 100%">
+        <tr>
+            <td style="text-align: right; width: 200px;">
+                <div>
+                    <img />
+                    <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Suite 419,
+                        Blackfriars House</div>
+                    <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Parsonage</div>
+                    <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Manchester</div>
+                    <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">M3 2JA</div>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <table style="width: 100%">
+                    <tr>
+                        <td
+                            style="text-align: left; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                            <%= company.name%></td>
+                        <td
+                            style="text-align: right; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                            <%= currentDate%></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= requiredAddress.line1%></div>
+                <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= requiredAddress.line2%></div>
+                <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= requiredAddress.city%></div>
+                <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= requiredAddress.postalCode%></div>
+                <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 4rem;">Dear
+                    <%= (gender==="Male") ? "Mr." : "Ms." %>
+                    <%= firstName%></div>
+                <div
+                    style="font-size: 16px; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 2rem; font-weight: bold;">
+                    INDICATIVE HEADS OF TERMS – <%= borrower%></div>
+                <div style="font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 2rem;">
+                    We are pleased to provide you with indicative heads of terms (the Heads of
+                    Terms)
+                    for a
+                    CommercialMortgagefacility (theFacility) to be entered between the Borrower (defined below)
+                    and Recognise Bank Limited as lender.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%; margin-top: 2rem;">
+                    <tr>
+                        <td style="width: 200px">
+                            <div
+                                style=" font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Expiry Date:</div>
+                        </td>
+                        <td colspan="2">
+                            <div style=" font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= expiryDate%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px">
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Borrower:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= borrower%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Loan Purpose:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= loanPurpose%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Gross Loan Amount:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                £<%= grossLoanAmount%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Proposed Security:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <% for (let i=0; i< proposedSecurity.length; i++) {%>
+                                    <%= proposedSecurity[i]%> <br>
+                                <%}%>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Term:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= term%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Arrangement Fee:</div>
+                        </td>
+                        <td style="width: 100px">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                £<%= arrangementFee%></div>
+                        </td>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                (To be deducted from the Gross Loan Amount on the
+                                Drawdown Date. The Arrangement Fee is nonrefundable.)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Procuration Fee:</div>
+                        </td>
+                        <td>
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                £<%= procurationFee%></div>
+                        </td>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                Deducted from the arrangement fee and paid to the
+                                introducer ABC Broker Ltd
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Intrest Rate:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= interestRate%>% over Bank of England Base Rate (Currently <%= loanOffer.baseRate%>%) </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Repayment Type:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= repaymentType%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Monthly Payment:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                £<%= monthlyPayment.toFixed(2)%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                TT Fee:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                £<%= TTFee%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                style=" margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                                Prepayment Fees:</div>
+                        </td>
+                        <td colspan="2">
+                            <div
+                                style="margin-top: 1rem; font-size: 12px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <%= prepaymentFees%></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <div style="font-size: 12px; text-align: 'center'; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 4rem;">
+                    Recognise Bank Limited is authorised by the Prudential Regulation Authority and regulated by the
+                    Financial Conduct
+                    Authority and the Prudential Regulation Authority. FRN: 849404. Registered in England and Wales with
+                    company number
+                    10603119. Registered Office: 60 Gracechurch Street, London, EC3V 0HR. Loan facilities offered by
+                    Recognise Bank Limited
+                    are non-regulated contracts under The Financial Services and Markets (Regulated Activities) Order
+                    2001 and the Financial
+                    Services and Markets Mortgage Credit Directive Order 2015. Your property is at risk if you fail to
+                    make payments on a
+                    mortgage contract.
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
