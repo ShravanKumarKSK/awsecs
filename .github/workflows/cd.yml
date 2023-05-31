@@ -23,6 +23,7 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker build -t portal-backend .
+          docker push 443121937602.dkr.ecr.us-west-2.amazonaws.com/myecrr:${{ github.sha }}
 #     docker tag portal-backend:latest <your_ecr_repository_url>/portal-backend:latest  
 #     docker push <your_ecr_repository_url>/portal-backend:latest
 
