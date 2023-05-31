@@ -20,11 +20,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
           aws-region: eu-west-2
 
-      - name: Build and push Docker image
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: myecrr
+          IMAGE_TAG: portal_bcknd
         run: |
-          docker build -t portal-backend .
-          docker tag e9ae3c220b23:latest public.ecr.aws/s7m4g9r9/portal-backend:latest
-          docker push public.ecr.aws/s7m4g9r9/portal-backend:latest
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+# - name: Build and push Docker image
+#   run: |
+#     docker build -t portal-backend .
+#     docker tag e9ae3c220b23:latest public.ecr.aws/s7m4g9r9/portal-backend:latest
+#     docker push public.ecr.aws/s7m4g9r9/portal-backend:latest
 #     docker tag portal-backend:latest <your_ecr_repository_url>/portal-backend:latest  
 #     docker push <your_ecr_repository_url>/portal-backend:latest
 
