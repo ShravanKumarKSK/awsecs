@@ -34,9 +34,9 @@ jobs:
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build -t portal-backend .
-          docker tag e9ae3c220b23:latest public.ecr.aws/s7m4g9r9/portal-backend:latest
-          docker push public.ecr.aws/s7m4g9r9/portal-backend:latest
+          docker build -t backend .
+          docker tag backend:latest public.ecr.aws/s7m4g9r9/backend:latest
+          docker push public.ecr.aws/s7m4g9r9/backend:latest
           
 
 # - name: Build and push Docker image
