@@ -23,12 +23,29 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build and push Docker image
+        
+      - name: Build, tag, and push image to Amazon ECR (dev)
+        id: build-image-dev
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: myecrr1
+          IMAGE_TAG: dev # ${{ github.sha }}
         run: |
-          docker build -t bcknd .
-          docker tag bcknd:latest 443121937602.dkr.ecr.us-west-2.amazonaws.com/myecrr/bcknd:latest
-          docker push 443121937602.dkr.ecr.us-west-2.amazonaws.com/myecrr/bcknd:latest
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -f "disposition_tracker/Dockerfile" -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >>$GITHUB_OUTPUT
+
+# - name: Build and push Docker image
+#   run: |
+#     docker build -t bcknd .
+#     docker tag bcknd:latest 443121937602.dkr.ecr.us-west-2.amazonaws.com/myecrr/bcknd:latest
+#     docker push 443121937602.dkr.ecr.us-west-2.amazonaws.com/myecrr/bcknd:latest
+
+
+      
 
 # - name: Build, tag, and push image to Amazon ECR
 #   env:
