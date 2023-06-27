@@ -30,7 +30,7 @@ jobs:
           ECR_REPOSITORY: mypublic-ecrr
           IMAGE_TAG: nodejs_demo_image
         run: |
-          docker build $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker tag ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push 443121937602.dkr.ecr.us-east-1.amazonaws.com/myecrr1:latest
           
